@@ -1,15 +1,58 @@
-Welcome to your new dbt project!
+# dbt_scooters
 
-### Using the starter project
+Проект на базе dbt, предназначенный для управления и трансформации данных,
+связанных с использованием скутеров кикшеринга.
+Позволяет выстроить аналитику данных о передвижениях и использовании скутеров.
 
-Try running the following commands:
-- dbt run
-- dbt test
+## Быстрый старт
 
+1. Убедитесь, что у вас установлен пакетный менеджер uv:
 
-### Resources:
-- Learn more about dbt [in the docs](https://docs.getdbt.com/docs/introduction)
-- Check out [Discourse](https://discourse.getdbt.com/) for commonly asked questions and answers
-- Join the [chat](https://community.getdbt.com/) on Slack for live discussions and support
-- Find [dbt events](https://events.getdbt.com) near you
-- Check out [the blog](https://blog.getdbt.com/) for the latest news on dbt's development and best practices
+```bash
+uv --version
+```
+Установить uv, если его нет 
+`pip install uv==0.8.20
+
+2. Клонировать репозиторий проекта
+git clone https://github.com/Kosoukhovsa/dbt-scooters
+и перейти в папку проекта
+`cd dbt_scooters
+
+3. Создать виртуальное окружение и установить зависимости проекта (dbt и адаптер postgres):
+   
+```bash
+uv sync
+```
+
+4. Обновите конфигурационный файл `C:\Users\<user>\.dbt\profiles.yml` с вашими данными доступа к базе данных.
+
+5. Проверить корректность настроек
+`uv run dbt debug
+
+## Основные команды dbt
+
+- `dbt debug` - проверка подключения к хранилищу данных (проверка профиля)
+- `dbt parse` - парсинг файлов проекта (проверка корректности)
+- `dbt compile` - компилирует dbt-модели и создает SQL-файлы
+- `dbt run` - материализация моделей в таблицы и представления
+- `dbt test` - запускает тесты для проверки качества данных
+- `dbt seed` - загружает данные в таблицы из CSV-файлов
+- `dbt build` - основная команда, комбинирует run, test и seed
+- `dbt docs generate` - генерирует документацию проекта
+- `dbt docs serve` - запускает локальный сервер для просмотра документации
+
+Примечание: если виртуальное окружение не активно, используйте `uv run dbt `.
+
+#### Структура проекта
+
+dbt_scooters/
+├── models/          # SQL трансформации
+├── tests/           # Тесты для моделей
+├── macros/          # Переиспользуемые макросы
+├── seeds/           # CSV-данные
+└── dbt_project.yml  # Конфигурация проекта
+
+Требования
+Python 3.10+
+uv (пакетный менеджер)
