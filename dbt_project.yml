@@ -16,5 +16,4 @@ clean-targets:         # directories to be removed by `dbt clean`
   - "dbt_packages"
 models:
   dbt_scooters:
-    example:
-      +materialized: view
+    +materialized: table
