@@ -51,6 +51,7 @@ models:
   - name: "parking_finish_stat"
     description: "Trip finish parking statistics by 10 m hexagons"
 
+
   - name: "events_clean"
     description: "User events without duplicates"
     config:
