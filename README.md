@@ -30,6 +30,12 @@ uv sync
 5. Проверить корректность настроек
 `uv run dbt debug
 
+6. Активируйте PostGIS в базе PostgreSQL, если еще этого не делали:
+
+```sql
+create extension postgis schema public;
+```
+
 ## Основные команды dbt
 
 - `dbt debug` - проверка подключения к хранилищу данных (проверка профиля)
