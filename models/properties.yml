@@ -64,3 +64,12 @@ models:
       incremental_strategy: "merge"
       unique_key: [ "date" ]
       on_schema_change: "append_new_columns"
+
+  - name: "trips_concurency"
+    description: "Number of concurrent trips over time"
+    config:
+      materialized: "incremental"
+      incremental_strategy: "append"
+      unique_key: [ "timestamp" ]
+      on_schema_change: "append_new_columns"
+
