@@ -72,4 +72,13 @@ models:
       incremental_strategy: "append"
       unique_key: [ "timestamp" ]
       on_schema_change: "append_new_columns"
+  
+  - name: "companies"
+    description: "Scooter companies statistics"
+
+
+  - name: "companies_trips"
+    description: "Scooter companies trips statistics" 
+
+    
 
