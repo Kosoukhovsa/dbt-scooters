@@ -80,5 +80,13 @@ models:
   - name: "companies_trips"
     description: "Scooter companies trips statistics" 
 
+  - name: "events_full"
+    description: "User events with event type names"
+    config:
+      materialized: "view"
+      
+  - name: "events_stat"
+    description: "Overall user events statistics"
+
     
 
