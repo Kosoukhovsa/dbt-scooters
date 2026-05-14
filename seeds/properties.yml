@@ -11,3 +11,6 @@ seeds:
     config:
       delimiter: ","
       on_schema_change: "sync_all_columns"
+
+  - name: "age_groups"
+    description: "Age groups to split users for analysis"
