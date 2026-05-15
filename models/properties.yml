@@ -64,6 +64,7 @@ models:
       incremental_strategy: "merge"
       unique_key: [ "date" ]
       on_schema_change: "append_new_columns"
+      full_refresh: false
 
   - name: "trips_concurency"
     description: "Number of concurrent trips over time"
