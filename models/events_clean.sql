@@ -1,3 +1,4 @@
+{% set date = var("date", none) %}
 select distinct
     user_id,
     "timestamp",
@@ -5,8 +6,13 @@ select distinct
     {{ updated_at() }}
 from
     {{ source("scooters_raw", "events") }}
+where
 {% if is_incremental() %}
-    where timestamp > (select max(timestamp) from {{ this }})
-{% else %}    
-    where timestamp < date '2023-08-01'
+    {% if date %}
+        date("timestamp") = date '{{ date }}'
+    {% else %}
+        "timestamp" > (select max("timestamp") from {{ this }})
+    {% endif %}
+{% else %}
+    "timestamp" < timestamp '2023-08-01'
 {% endif %}
