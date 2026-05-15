@@ -50,6 +50,10 @@ create extension postgis schema public;
 
 Примечание: если виртуальное окружение не активно, используйте `uv run dbt `.
 
+## Полезные макросы
+
+- `dbt run-operation create_role --args "name: finance"` - создание роли в базе (на примере роли "finance")
+
 #### Структура проекта
 
 dbt_scooters/
